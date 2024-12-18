@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies and Interest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: url('https://wallpapercave.com/wp/wp9321710.png') no-repeat center center/cover;
+            height: 200px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .carousel img {
+            width: 100%;
+            border-radius: 10px;
+            height: 600px;
+        }
+
+        .carousel-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #ff4655;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e33d4c;
+        }
+
+        .agent-info {
+            margin-top: 20px;
+        }
+
+        .video-link {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 10px;
+            background-color: #ff4655;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .video-link:hover {
+            background-color: #e33d4c;
+        }
+    </style>
+    <script>
+        let currentIndex = 0;
+        const agents = [
+            {
+                name: "Valorant",
+                Likeability: "4/5.",
+                HowoftenIdoit: "Almost everyday.",
+                description: "A first person tactical shooter based on 5v5, each team has a task defend or attack a specific zone of the map and win the round.",
+                image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6174cd1a-f614-4c1e-9d75-4997060b6156/ddrsqbl-eb74072b-24d1-4fcf-8981-8526538e676b.png/v1/fit/w_806,h_1090/jett_render_by_lynwulf_ddrsqbl-414w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA5MCIsInBhdGgiOiJcL2ZcLzYxNzRjZDFhLWY2MTQtNGMxZS05ZDc1LTQ5OTcwNjBiNjE1NlwvZGRyc3FibC1lYjc0MDcyYi0yNGQxLTRmY2YtODk4MS04NTI2NTM4ZTY3NmIucG5nIiwid2lkdGgiOiI8PTgwNiJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.WCHWJ-I4EHxfMjfIXLPnig0BSkrEeEWWzJcpv_pnnok",
+                video: "https://www.youtube.com/watch?v=e_E9W2vsRbQ"
+            },
+            {
+                name: "Music",
+                Likeability: "5/5.",
+                HowoftenIdoit: "Every single minute I have the chance to.",
+                description: "Helps me think and is relaxing. I generally listen to rap or chill music but my daily plays can be hard to guess",
+                image: "https://pluspng.com/img-png/spotify-logo-png-open-2000.png",
+                video: "https://www.youtube.com/watch?v=MiYUwjWRP-M"
+            },
+            {
+                name: "Walking",
+                Likeability: "5/5.",
+                HowoftenIdoit: "Almost everyday.",
+                description: "I just love walking, feeling the air and watching everything while I walk.",
+                image: "https://t3.ftcdn.net/jpg/01/77/35/62/240_F_177356247_e07uAYaDMpZBIPz1ex4sZcBunNKn5WaZ.jpg",
+                video: "https://www.youtube.com/watch?v=u_5wLvlRhc0"
+            },
+            {
+                name: "Cars",
+                Likeability: "5/5.",
+                HowoftenIdoit: "Its not that usual but almost twice a week I spot one.",
+                description: "Everytime I see a sports car I get hyped.",
+                image: "https://wallpaper.forfun.com/fetch/38/38eed51af5e552d60d9e8c4466afcd74.jpeg?h=1200&r=0.5",
+                video: "https://www.youtube.com/watch?v=6xY_LQzTyus"
+            }
+        ];
+
+        function showAgent(index) {
+            const agent = agents[index];
+            document.getElementById("agent-name").textContent = agent.name;
+            document.getElementById("agent-role").textContent = agent.role;
+            document.getElementById("agent-abilities").textContent = agent.abilities;
+            document.getElementById("agent-description").textContent = agent.description;
+            document.getElementById("agent-image").src = agent.image;
+            document.getElementById("agent-video-link").href = agent.video;
+        }
+
+        function nextAgent() {
+            currentIndex = (currentIndex + 1) % agents.length;
+            showAgent(currentIndex);
+        }
+
+        function prevAgent() {
+            currentIndex = (currentIndex - 1 + agents.length) % agents.length;
+            showAgent(currentIndex);
+        }
+
+        window.onload = () => showAgent(currentIndex);
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>My hobbies</h1>
+    <nav>
+        <a href="mainpage.html">Home</a>
+        <a href="HTML Cheat Sheet.html">Cheat Sheet</a>
+        <a href="resume.html">Resume</a>
+    </nav>
+</header>
+
+<main>
+    <div class="carousel">
+        <h2 id="agent-name"></h2>
+        <img id="agent-image" alt="Agent Image">
+        <div class="agent-info">
+            <p><strong></strong> <span id="agent-role"></span></p>
+            <p><strong></strong> <span id="agent-abilities"></span></p>
+            <p><strong>Description:</strong> <span id="agent-description"></span></p>
+        </div>
+        <a id="agent-video-link" class="video-link" target="_blank">Watch A Demonstration</a>
+        <div class="carousel-buttons">
+            <button onclick="prevAgent()">Previous</button>
+            <button onclick="nextAgent()">Next</button>
+        </div>
+    </div>
+</main>
+
+<footer>
+    All rights reserved Jeshua Arias 2024.
+</footer>
+</body>
+</html>

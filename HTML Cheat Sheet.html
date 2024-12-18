@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML and CSS Cheat Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: url('https://media.istockphoto.com/id/1422478091/photo/close-up-of-a-hands-on-a-laptop-keyboard.jpg?s=612x612&w=0&k=20&c=TNGJooImQwsqodIC8vZB4e0r60RN989t0H9lmBmz60Y=') no-repeat center center/cover;
+            height: 200px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .carousel img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .carousel-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #ff4655;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e33d4c;
+        }
+
+        .map-info {
+            margin-top: 20px;
+        }
+
+    </style>
+    <script>
+        let currentIndex = 0;
+        const maps = [
+            {
+                name: "HTML",
+                description: "HTML Cheat Sheet contains useful code examples and web developer tools, markup generators and more on a single page. Switch to other web developer sheets, like CSS or JavaScript. ",
+                image: "https://sharethis.com/wp-content/uploads/2020/02/Screen-Shot-2020-02-06-at-7.49.06-PM-min.jpg",
+                video: "https://www.youtube.com/watch?v=REP2abwrAqo"
+            },
+            {
+                name: "CSS",
+                description: "CSS Cheat Sheet contains the most common style snippets: CSS gradient, background, button, font-family, border, radius, box and text shadow generators, color picker and more.",
+                image: "https://imgs.search.brave.com/-8ByAguc93S_L8Am1LUvsn_GTlWSXOuf03qX2FGj9u8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Y3NzYXV0aG9yLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAx/NS8wNy9jc3MtcmVm/ZXJlbmNlLXNoZWV0/LmpwZz9zdHJpcD1h/bGwmbG9zc3k9MSZz/c2w9MQ",
+                video: "https://www.youtube.com/watch?v=ccpnPortUi4"
+            },
+            {
+                name: "Java Script",
+                description: "JavaScript Cheat Seet contains useful code examples on a single page.",
+                image: "https://blog.templatetoaster.com/wp-content/uploads/2018/01/debuggex-beta.jpg",
+                video: "https://www.youtube.com/watch?v=kXtOr2YWd6I"
+            },
+                   
+        ];
+
+        function showMap(index) {
+            const map = maps[index];
+            document.getElementById("map-name").textContent = map.name;
+            document.getElementById("map-description").textContent = map.description;
+            document.getElementById("map-image").src = map.image;
+            document.getElementById("map-video-link").href = map.video;
+        }
+
+        function nextMap() {
+            currentIndex = (currentIndex + 1) % maps.length;
+            showMap(currentIndex);
+        }
+
+        function prevMap() {
+            currentIndex = (currentIndex - 1 + maps.length) % maps.length;
+            showMap(currentIndex);
+        }
+
+        window.onload = () => showMap(currentIndex);
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>HTML and CSS Cheat Sheet.</h1>
+    <nav>
+        <a href="mainpage.html">Home</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="resume.html">Resume</a>
+    </nav>
+</header>
+
+<main>
+    <div class="carousel">
+        <h2 id="map-name"></h2>
+        <img id="map-image" alt="Map Image">
+        <div class="map-info">
+            <p id="map-description"></p>
+        </div>
+        <a id="map-video-link" class="video-link" target="_blank">Watch Demonstration</a>
+        <div class="carousel-buttons">
+            <button onclick="prevMap()">Previous</button>
+            <button onclick="nextMap()">Next</button>
+        </div>
+    </div>
+</main>
+
+<footer>
+    All rights reserved Jeshua Arias 2024.
+</footer>
+
+</body>
+</html>
